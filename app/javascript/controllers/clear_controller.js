@@ -1,7 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="clear"
 export default class extends Controller {
-  connect() {
-    this.element.textContent = "Hello World!"
+
+  refresh() {
+    window.location.href = '/';
   }
 }
