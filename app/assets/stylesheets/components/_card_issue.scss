@@ -1,0 +1,20 @@
+.card-issue {
+  border: 2px solid $white;
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+  padding: 16px;
+  color: $snow;
+
+  &--open-source {
+    background-color: $amethyst;
+  }
+
+  &--call-to-action {
+    background-color: $dark-pink;
+  }
+
+  &--call-to-action-comment {
+    background-color: $snow;
+    color: $dark-pink;
+  }
+}

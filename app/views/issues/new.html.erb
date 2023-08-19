@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Ask for other people's help on an issue</h1>
+  <div class="mb-6">
+  <p>Are you stuck on a personal project, or maybe you picked up an issue
+  from someone else's repository but you need a little back up?</p>
+  <p>This is the place for you!</p>
+  <p>Just add your issue's details and it will be displayed in the list of issues.</p>
+  <p>Other members of the community will be able to comment on it to offer their help.</p>
+  </div>
+
+  <h2>Create a new issue</h2>
+  <%= simple_form_for(@issue) do |f| %>
+    <%= f.input :title, label: "Shortly summarize what you need help with" %>
+    <%= f.input :description, as: :text, label: "Give more details about what you need", required: true, input_html: { id: "editor", class: "form-control", rows: 4 }  %>
+    <%= f.input :repo_name, label: "Repository name" %>
+    <%= f.input :repo_url, label: "Link to the repository on Github" %>
+    <%= f.input :url, label: "Link to the issue on Github for this (if any)" %>
+    <%= f.hidden_field :category, value: "call-to-action" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

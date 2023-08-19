@@ -1,0 +1,42 @@
+<div class="card-issue <%= issue.open_source? ? 'card-issue--open-source' : 'card-issue--call-to-action'  %>">
+  <div class="d-flex justify-content-between align-items-center">
+    <h3 class=""><%= issue.title %></h3>
+    <div class="d-flex align-items-center link-container">
+      <div class="icon-container d-flex align-items-center" id="issue-bookmarks-<%= issue.id %>">
+        <% if current_user&.bookmarks&.find_by(issue_id: issue.id) %>
+          <%= link_to issue_bookmarks_path(issue), data: { turbo_method: :delete } do %>
+            <i class="fa-sharp fa-heart fa-xl fa-solid me-3"></i>
+          <% end %>
+        <% else %>
+          <%= link_to issue_bookmarks_path(issue), data: { turbo_method: :post, turbo_frame: "_top" } do %>
+            <i class="fa-sharp fa-regular fa-heart fa-xl me-3"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if issue.open_source? && !issue.url.blank? %>
+        <%= link_to issue.url , target: "_blank", class: "text-purple" do %>
+          <i class="fa-brands fa-github"></i></i>
+        <% end %>
+      <% elsif issue.call_to_action? %>
+        <%= link_to issue_path(issue), class: "text-purple" do %>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <% end %>
+      <% end %>
+      </div>
+  </div>
+  <p class="mb-4 text-dark text-italic"><%= issue.repo_name %></p>
+  <% if issue.description %>
+    <p class="mb-4 issue-description"><%= issue.description.truncate(100) %></p>
+  <% end %>
+  <% if issue.assigned %>
+    <i class="fa-solid fa-user-check me-2"></i><span>assigned</span>
+  <% else %>
+    <i class="fa-solid fa-user-large-slash me-2"></i><span>unassigned</span>
+  <% end %>
+  <div class="mt-4">
+    <% issue.tags.each do |tag| %>
+      <span class="repo-tags"><%= tag.name  %></span>
+    <% end %>
+  </div>
+</div>

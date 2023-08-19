@@ -1,0 +1,29 @@
+<div class="banner">
+  <div class="container d-flex justify-content-between">
+    <div>
+      <h1>First Ruby Quest</h1>
+      <h3>Become an open source hero by <br>tackling beginner-friendly issues</h3>
+    </div>
+    <div class="banner-right">
+      <%= image_tag "github-mark", width: 100 %>
+      <div class="mt-4">
+        <%= link_to "Get help on an issue", new_issue_path, class: "btn btn-secondary me-2" %>
+        <a class="btn btn-primary" href="#">Join now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-5 issues-container">
+  <div class="search" data-controller="tags clear"   data-tags-tags-value="<%= @tags %>">
+    <%= render "form" %>
+  </div>
+  <!-- Issue Cards -->
+  <div class="">
+    <% @issues.each do |issue| %>
+      <%= render "shared/cards", issue: issue %>
+    <% end %>
+
+    <%= paginate @issues %>
+  </div>
+</div>

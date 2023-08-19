@@ -1,0 +1,36 @@
+  h1{
+    align-content: center;
+    text-align: center;
+  }
+
+  .left {
+    flex: 1;
+  }
+
+  .right {
+    flex: 1;
+  }
+
+  .filters {
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+
+  .issues {
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .container-1{
+    padding: 8px;
+    border: 2px solid #D0BCFF;
+    border-radius: 8px; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; 
+    margin: 0 auto;
+  }
+  

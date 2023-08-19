@@ -16,5 +16,8 @@ class IssuesController < ApplicationController
     if params[:tags].present?
       @issues = @issues.joins(:tags).where(tags: { id: JSON.parse(params[:tags]).map { |tag| tag["value"].to_i } })
     end
+
+    @issues = @issues.search_by_keyword(params[:query]) if params[:query].present?
+    @issues = @issues.page(params[:page]).per(6)
   end
 end

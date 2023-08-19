@@ -1,0 +1,68 @@
+.issues-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr minmax(60%, 1fr);
+  justify-content: center;
+  align-content: center;
+}
+
+.search {
+  position: sticky;
+  border: 2px solid $purple;
+  padding: 2rem;
+  border-radius: $border-radius;
+  height: fit-content;
+
+  .form-control {
+    color: $snow
+  }
+}
+
+.issue-description {
+  max-width: 70%;
+}
+
+.repo-tags {
+  background-color: $snow;
+  color: $dark;
+  border-radius: $border-radius;
+  padding: 4px;
+  margin-right: 4px 6px;
+}
+
+.icon-container{
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.link-container i{
+  font-size: 2rem;
+}
+
+.tagify, .tagify__input  {
+  width: 100%;
+}
+
+.label-tags {
+  width: 300px;
+}
+.tagify__dropdown, .tagify__dropdown__wrapper {
+  width: 100%;
+}
+
+.tagify__dropdown__wrapper {
+  background-color: $pink;
+  border-color: $pink;
+}
+
+.tagify__dropdown__item {
+  font-size: 1rem;
+}
+
+.tagify__dropdown__item--active {
+  background-color: $dark;
+  color: $snow;
+}
+.tagify--focus {
+  border-color: $pink;
+}
