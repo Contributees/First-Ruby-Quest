@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
       t.string :username
-      t.string :github_url
+      t.string :gh_url
 
       t.timestamps null: false
     end

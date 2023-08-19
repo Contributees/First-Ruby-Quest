@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_110911) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "username"
-    t.string "github_url"
+    t.string "gh_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
