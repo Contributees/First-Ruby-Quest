@@ -1,4 +1,6 @@
-require "open-uri"
+# frozen_string_literal: true
+
+require 'open-uri'
 
 class Issue < ApplicationRecord
   include PgSearch::Model
@@ -17,15 +19,16 @@ class Issue < ApplicationRecord
   validates :url, uniqueness: true, if: :open_source?
   validates :url, presence: true, if: :open_source?
   validates :repo_name, presence: true, if: :open_source?
-  validates :repo_url, presence: true, if: :open_source?
-  validates :github_id, presence: true, if: :open_source?
+  validates :gh_url, presence: true, if: :open_source?
+  validates :gh_id, presence: true, if: :open_source?
   # only for call_to_action issues
   validates :description, presence: true, if: :call_to_action?
   validates :user_id, presence: true, if: :call_to_action?
 
   enum category: %i[open-source call_to_action]
+  enum status: %i[open closed]
 
-  pg_search_scope :search_by_keyword, against: [:title, :description, :repo_name]
+  pg_search_scope :search_by_keyword, against: %i[title description repo_name]
 
   def self.find_issues
     issues = GithubApi.new.search_issues.items
@@ -35,9 +38,7 @@ class Issue < ApplicationRecord
       active_issues << i
     end
 
-    issues_no_longer_available = Issue.where(category: "open-source") - active_issues
-    issues_no_longer_available.each do |issue|
-      issue.update(available: false)
-    end
+    issues_no_longer_available = Issue.where(category: 'open-source') - active_issues
+    issues_no_longer_available.each(&:closed!)
   end
 end

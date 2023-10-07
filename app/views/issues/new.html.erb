@@ -16,7 +16,7 @@
       <%= f.rich_text_area :description, required: true, class: "form-control customized-min-height" %>
     </div>
     <%= f.input :repo_name, label: "Repository name", wrapper_html: {class: "mt-5 mb-4"}  %>
-    <%= f.input :repo_url, label: "Link to the repository on Github", wrapper_html: {class: "mb-4"}  %>
+    <%= f.input :gh_url, label: "Link to the repository on Github", wrapper_html: {class: "mb-4"}  %>
     <%= f.input :url, label: "Link to the issue on Github for this (if any)", wrapper_html: {class: "mb-4"}  %>
     <%= f.hidden_field :category, value: "call-to-action" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
