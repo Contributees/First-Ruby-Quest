@@ -1,0 +1,23 @@
+name: "CI"
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1 # v1.146.0
+        with:
+          bundler-cache: true
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Add or replace any other lints here
+      - name: Install dependencies
+        run: bin/bundle install
+      - name: Lint Ruby files
+        run: bundle exec rubocop --format github
