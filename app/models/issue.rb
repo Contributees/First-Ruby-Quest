@@ -20,7 +20,7 @@ class Issue < ApplicationRecord
   validates :url, presence: true, if: :open_source?
   validates :repo_name, presence: true, if: :open_source?
   validates :gh_url, presence: true, if: :open_source?
-  validates :github_id, presence: true, if: :open_source?
+  validates :gh_id, presence: true, if: :open_source?
   # only for call_to_action issues
   validates :description, presence: true, if: :call_to_action?
   validates :user_id, presence: true, if: :call_to_action?

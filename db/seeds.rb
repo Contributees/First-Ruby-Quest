@@ -30,7 +30,7 @@ end
     description: Faker::Lorem.paragraph,
     user: User.all.sample,
     category: rand(0..1),
-    github_id: i + 1,
+    gh_id: i + 1,
     assigned: [true, false].sample
   )
 end

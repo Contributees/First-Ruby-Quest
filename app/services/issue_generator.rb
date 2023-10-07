@@ -7,7 +7,7 @@ class IssueGenerator
 
   def create
     issue_attributes = extract_issue_details
-    existing_issue = Issue.find_by(github_id: @issue.id)
+    existing_issue = Issue.find_by(gh_id: @issue.id)
 
     if existing_issue
       existing_issue.update(issue_attributes)
@@ -15,7 +15,7 @@ class IssueGenerator
       new_issue_attributes = issue_attributes.merge(
         gh_issue_created_at: @issue.created_at,
         category: 'open-source',
-        github_id: @issue.id
+        gh_id: @issue.id
       )
 
       new_issue = Issue.create(new_issue_attributes)
