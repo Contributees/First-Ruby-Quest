@@ -5,7 +5,7 @@ class IssuesController < ApplicationController
 
   def index
     @tags = Tag.all.map { |tag| { value: tag.id, name: tag.name } }.to_json
-    @issues = Issue.where(available: true)
+    @issues = Issue.open
 
     filter_issues_by_assigned_and_category
     filter_issues_by_tags
