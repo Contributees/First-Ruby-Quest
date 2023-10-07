@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IssueGenerator
   def initialize(issue)
     @issue = issue
@@ -11,7 +13,8 @@ class IssueGenerator
       preexisting_issue.update(issue_attributes)
       preexisting_issue
     else
-      new_issue_attributes = issue_attributes.merge({gh_issue_created_at: @issue.created_at, category: "open-source", github_id: @issue.id})
+      new_issue_attributes = issue_attributes.merge({ gh_issue_created_at: @issue.created_at, category: 'open-source',
+                                                      github_id: @issue.id })
       new_issue = Issue.create!(new_issue_attributes)
       tags = @issue.labels.pluck(:name)
       tags.each do |tag|
@@ -26,16 +29,16 @@ class IssueGenerator
 
   def get_necessary_attributes
     issue_url = @issue.html_url
-    repo_url = issue_url.sub(/\/issues\/\d+$/, '')
-    repo_name = repo_url.sub("https://github.com/", '')
+    gh_url = issue_url.sub(%r{/issues/\d+$}, '')
+    repo_name = gh_url.sub('https://github.com/', '')
 
     {
       url: issue_url,
       title: @issue.title,
       description: @issue.body,
-      assigned: !!@issue.assignee,
-      repo_url: repo_url,
-      repo_name: repo_name,
+      assigned: !@issue.assignee.nil?,
+      gh_url:,
+      repo_name:,
       available: true
     }
   end

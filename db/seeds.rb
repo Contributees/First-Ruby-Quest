@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 # delete the content of the database before seeding
@@ -11,7 +13,7 @@ Comment.destroy_all
   username = Faker::Internet.username
   User.create!(
     username:,
-    github_url: "https://github.com/#{username}",
+    gh_url: "https://github.com/#{username}",
     email: Faker::Internet.email,
     password: '123456',
     password_confirmation: '123456'
@@ -24,7 +26,7 @@ end
     title: Faker::Hacker.say_something_smart,
     repo_name: Faker::Lorem.word,
     repo_stars: Faker::Number.number(digits: 4),
-    repo_url: "https://github.com/#{Faker::Company.name}",
+    gh_url: "https://github.com/#{Faker::Company.name}",
     description: Faker::Lorem.paragraph,
     user: User.all.sample,
     category: rand(0..1),
@@ -40,7 +42,7 @@ end
   )
 end
 
-tags = %w[Ruby Rails Good\ first\ issue Help\ wanted Bug Beginner]
+tags = ['Ruby', 'Rails', 'Good first issue', 'Help wanted', 'Bug', 'Beginner']
 tags.each do |tag|
   Tag.create!(
     name: tag
@@ -64,4 +66,4 @@ end
   )
 end
 
-puts "Seeded database!"
+puts 'Seeded database!'

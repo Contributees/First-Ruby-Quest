@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -7,10 +9,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  root to: "issues#index"
-  get "dashboard", to: "pages#dashboard"
+  root to: 'issues#index'
+  get 'dashboard', to: 'pages#dashboard'
 
-  resources :issues, only: [:new, :create, :show] do
+  resources :issues, only: %i[new create show] do
     resources :bookmarks, only: :create do
       collection do
         delete :destroy

@@ -15,8 +15,8 @@
       <% if !@issue.url.blank? %>
         <%= link_to "See Issue on GitHub", @issue.url , target: "_blank", class: "btn btn-primary btn-goto-issue" %>
       <% end %>
-    <% if !@issue.repo_url.blank? %>
-      <%= link_to "See repository on GitHub", @issue.repo_url, target: "_blank", class: "btn btn-success btn-goto-issue" %>
+    <% if !@issue.gh_url.blank? %>
+      <%= link_to "See repository on GitHub", @issue.gh_url, target: "_blank", class: "btn btn-success btn-goto-issue" %>
     <% end %>
     </div>
   </div>

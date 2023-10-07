@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   def dashboard
     @bookmarked_issues = Bookmark.includes(issue: :tags).where(user_id: current_user.id)
@@ -13,7 +15,7 @@ class PagesController < ApplicationController
     end
 
     if params[:assigned].present?
-      assigned_value = params[:assigned] == "true"
+      assigned_value = params[:assigned] == 'true'
       @bookmarked_issues = @bookmarked_issues.select do |bookmark|
         issue = bookmark.issue
         issue.assigned == assigned_value
@@ -28,8 +30,7 @@ class PagesController < ApplicationController
       end
     end
 
-    @bookmarked_issues = @bookmarked_issues.sort_by { |bookmark| bookmark.created_at }.reverse
+    @bookmarked_issues = @bookmarked_issues.sort_by(&:created_at).reverse
     @bookmarked_issues = Kaminari.paginate_array(@bookmarked_issues).page(params[:page]).per(6)
   end
 end
-

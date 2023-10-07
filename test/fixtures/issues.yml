@@ -5,7 +5,7 @@ one:
   title: MyString
   repo_name: MyString
   repo_stars: 1
-  repo_url: 1
+  gh_url: 1
   description: MyString
   user: one
   category: 1
@@ -16,7 +16,7 @@ two:
   title: MyString
   repo_name: MyString
   repo_stars: 1
-  repo_url: 1
+  gh_url: 1
   description: MyString
   user: two
   category: 1

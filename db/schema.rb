@@ -81,21 +81,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_30_211403) do
   end
 
   create_table "issues", force: :cascade do |t|
-    t.string "url"
-    t.string "title"
+    t.boolean "assigned", default: false
+    t.integer "category"
+    t.boolean "completed", default: false
+    t.string "description"
+    t.bigint "gh_id"
+    t.datetime "gh_issue_created_at"
     t.string "repo_name"
     t.integer "repo_stars"
-    t.string "repo_url"
-    t.string "description"
+    t.string "gh_url"
+    t.string "title"
+    t.integer "status", default: 0
+    t.string "url"
     t.bigint "user_id"
-    t.integer "category"
-    t.boolean "assigned", default: false
-    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "github_id"
-    t.boolean "available", default: true
-    t.datetime "gh_issue_created_at"
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
@@ -112,7 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_30_211403) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "username"
-    t.string "github_url"
+    t.string "gh_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
