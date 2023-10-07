@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  title: MyString
+  repo_name: MyString
+  repo_stars: 1
+  repo_url: 1
+  description: MyString
+  user: one
+  category: 1
+  assigned: false
+
+two:
+  url: MyString
+  title: MyString
+  repo_name: MyString
+  repo_stars: 1
+  repo_url: 1
+  description: MyString
+  user: two
+  category: 1
+  assigned: false

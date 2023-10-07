@@ -1,0 +1,103 @@
+
+<div class="banner">
+  <h1>Welcome to Your Dashboard</h1>
+</div>
+<br>
+<div class="container-1">
+      <h2>Start your Ruby journey as a beginner by exploring online tutorials and resources.<br>Check out the following to get started.</h2>
+<ul>
+<li>
+    <a href="https://gorails.com/" target="_blank">GoRails</a>: GoRails is a website that provides tutorials and screencasts focused on Ruby on Rails development. It's a valuable resource for learning Rails-specific topics and best practices.
+  </li>
+  <li>
+    <a href="https://www.ruby-lang.org/" target="_blank">Official Ruby Website and Documentation</a>: The official Ruby website provides an excellent starting point with official documentation and guides for beginners.
+  </li>
+  <li>
+    <a href="https://try.ruby-lang.org/" target="_blank">Try Ruby</a>: "Try Ruby" is an interactive tutorial that allows you to experiment with Ruby in your browser. It's an excellent way to get a taste of the language without having to install anything.
+  </li>
+  <li>
+    <a href="https://rubymonk.com/" target="_blank">RubyMonk</a>: RubyMonk offers a series of interactive, beginner-friendly lessons to learn Ruby step by step.
+  </li>
+  <li>
+    <a href="https://www.codecademy.com/learn/learn-ruby" target="_blank">Codecademy - Learn Ruby</a>: Codecademy's Ruby course is designed for beginners and provides hands-on coding exercises to reinforce your learning.
+  </li>
+  <li>
+    <a href="https://www.rubyguides.com/" target="_blank">RubyGuides</a>: RubyGuides has a beginner's guide that covers the basics of Ruby programming, syntax, and concepts.
+  </li>
+  <li>
+    <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a>: The Odin Project is a comprehensive, free-to-access resource that offers a full-stack curriculum, including Ruby and Ruby on Rails.
+  </li>
+  <li>
+    <a href="https://learnrubythehardway.org/" target="_blank">Learn Ruby the Hard Way</a>: This is a book by Zed Shaw that takes a hands-on approach to teach Ruby. It's available both as a book and an online resource.
+  </li>
+  <li>
+    <a href="https://www.rubytapas.com/" target="_blank">RubyTapas</a>: Although not free, RubyTapas offers short screencasts that explore various Ruby topics in an easy-to-digest format.
+  </li>
+  <li>
+    <a href="https://guides.rubyonrails.org/" target="_blank">Ruby on Rails Guides</a>: If you are interested in web development with Ruby, the official Ruby on Rails Guides are an essential resource to accompany your learning.
+  </li>
+  <li>
+    <a href="https://www.reddit.com/r/ruby/" target="_blank">Ruby Reddit Community</a>: Reddit's r/ruby community is a great place to ask questions, find helpful discussions, and stay updated with the Ruby community.
+  </li>
+</ul>
+</div>
+<br>
+<div class="container pt-5 issues-container">
+  <div class="left">
+      <h2>My Bookmarked Issues</h2>
+      <div class="search">
+    <div class="filters">
+
+    <h4 class="">Search by keywords</h4>
+    <br>
+      <%= form_tag dashboard_path, method: :get, class: "form-inline mb-3" do %>
+        <%= text_field_tag :search, params[:search], class: "form-control me-2", placeholder: "Search for bookmarked issues" %>
+        <br>
+         <h4 class="">Assignment Status</h4>
+         <br>
+
+        <div class="form-check form-check-inline">
+          <%= radio_button_tag :assigned, "true", params[:assigned] == "true", id: "assigned", class: "btn-check" %>
+          <%= label_tag "assigned", "Assigned", class: "btn btn-outline-primary" %>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <%= radio_button_tag :assigned, "false", params[:assigned] == "false", id: "unassigned", class: "btn-check" %>
+          <%= label_tag "unassigned", "Unassigned", class: "btn btn-outline-primary" %>
+        </div>
+
+        <br><br>
+        <h4 class="">Github Tags</h4>
+        <br>
+        <% label_options = @bookmarked_issues.map { |bookmark| bookmark.issue.tags.pluck(:name) }.flatten.uniq %>
+        <%= select_tag :label, options_for_select(label_options, params[:label]), include_blank: "Select Label", class: "form-select" %>
+        <br>
+
+        <div>
+          <%= submit_tag "Filter", class: "btn btn-primary" %>
+          </div>
+          <br>
+          <div>
+          <%= link_to "Clear Filter", dashboard_path, class: "btn btn-secondary" %>
+          </div>
+      <% end %>
+    </div>
+
+</div>
+  </div>
+
+  <div class="right">
+    <div class="issues">
+      <div class="form-group">
+        <% if @bookmarked_issues.empty? %>
+          <p>No bookmarked issues found for the applied filters.</p>
+        <% else %>
+          <% @bookmarked_issues.each do |bookmark| %>
+            <%= render "shared/cards", issue: bookmark.issue %>
+          <% end %>
+        <%= paginate @bookmarked_issues %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

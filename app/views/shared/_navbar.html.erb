@@ -1,0 +1,33 @@
+<% resource_name ||= :user %>
+<div class="navbar navbar-expand-sm navbar-light" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <%= image_tag "logo-black.png"  %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto align-items-center">
+
+        <% if user_signed_in? %>
+         <!-- Display "Dashboard" link when signed in -->
+          <li class="nav-item me-4">
+            <%= link_to "Dashboard", dashboard_path, class: "btn btn-primary" %>
+          </li>
+          <li class="nav-item me-4">
+            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+          </li>
+        <% else %>
+          <li class="nav-item me-4">
+            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary" %>
+          </li>
+          <li class="nav-item me-4">
+            <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-success" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

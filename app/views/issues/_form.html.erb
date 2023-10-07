@@ -1,0 +1,38 @@
+<%= form_with url: "/", method: :get, data: {clear_target: "form"} do |form| %>
+  <div class="form-group mb-4">
+    <h4 class="">Search by keywords</h4>
+    <%= form.text_field :query, placeholder: "gem, concurrency, stimulus, etc.", class: "form-control", value: params[:query] %>
+  </div>
+
+  <div class="form-group mb-4">
+    <h4 class="">Type of quest</h4>
+    <%= radio_button :issue, :category, "", id: "category-indifferent", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "" %>
+    <label class="btn btn-outline-info me-1" for="category-indifferent">All</label>
+
+    <%= radio_button :issue, :category, "open-source", id: "open-source", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "open-source" %>
+    <label class="btn btn-outline-secondary me-1" for="open-source"><i class="fa-brands fa-github me-2"></i></i><span>Open Source</span></label>
+
+    <%= radio_button :issue, :category, "call_to_action", id: "call-to-action", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "call-to-action"  %>
+    <label class="btn btn-outline-warning me-1" for="call-to-action"><i class="fa-solid fa-hand-holding-hand me-2"></i></i><span>Personal</span></label>
+  </div>
+
+  <div class="form-group mb-4">
+    <h4 class="">Assignment Status</h4>
+    <%= radio_button :issue, :assigned, "", id: "assigned-indifferent", class: "btn-check", checked: params[:issue] && params[:issue][:assigned] == "" %>
+    <label class="btn btn-outline-info me-1" for="assigned-indifferent">All</label>
+
+    <%= radio_button :issue, :assigned, true, id: "assigned", class: "btn-check", checked: params[:issue] && params[:issue][:assigned] == "true" %>
+    <label class="btn btn-outline-info me-1" for="assigned"><i class="fa-solid fa-user-check me-2"></i></i><span>Assigned</span></label>
+
+    <%= radio_button :issue, :assigned, false, id: "unassigned", class: "btn-check", checked: params[:issue] && params[:issue][:assigned] == "false"  %>
+    <label class="btn btn-outline-info me-1" for="unassigned"><i class="fa-solid fa-user-large-slash me-2"></i><span>Unassigned</span></label>
+  </div>
+  <div class="form-group mb-4">
+    <h4 class="">Github Tags</h4>
+    <%= form.text_field :tags, data: {tags_target: "input", tags_action: "keyup->tags#updateTags"} %>
+  </div>
+  <div class="form-group">
+    <%= form.submit "Search", class: "btn btn-ouline-primary btn-search px-5 me-2 d-inline-flex" %>
+    <%= button_tag "Clear", type: "button", class: "btn btn-secondary", data: {action: "click->clear#refresh"} %>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+<%= turbo_stream.update "issue-bookmarks-#{@issue.id}" do %>
+  <%= link_to issue_bookmarks_path(@issue), data: { turbo_method: :delete } do %>
+    <i class="fa-sharp fa-heart fa-xl fa-solid"></i>
+  <% end %>
+<% end %>

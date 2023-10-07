@@ -1,0 +1,30 @@
+.btn {
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  color: white
+}
+
+.btn-check:active + .btn-outline-info:focus,
+.btn-check:checked + .btn-outline-info:focus,
+.btn-outline-info.active:focus,
+.btn-outline-info.dropdown-toggle.show:focus,
+.btn-outline-info:active:focus,
+.btn-check:focus + .btn-outline-info {
+  box-shadow: 0 0 0 0.2rem $purple;
+}
+
+.btn-search {
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  color: $purple;
+  background-color: $snow;
+  border: 2px solid $purple;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  &:hover {
+    border: 2px solid $purple;
+    color: $purple;
+    transition: all 0.2s ease-in-out;
+
+  }
+}
