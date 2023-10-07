@@ -39,8 +39,6 @@ class Issue < ApplicationRecord
     end
 
     issues_no_longer_available = Issue.where(category: 'open-source') - active_issues
-    issues_no_longer_available.each do |issue|
-      issue.update(available: false)
-    end
+    issues_no_longer_available.each(&:closed!)
   end
 end

@@ -38,7 +38,7 @@ class IssueGenerator
       assigned: !@issue.assignee.nil?,
       gh_url:,
       repo_name:,
-      available: true
+      status: 0
     }
   end
 
