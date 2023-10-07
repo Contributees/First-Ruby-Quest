@@ -39,6 +39,10 @@ end
 
 group :development do
   gem 'web-console' # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rake'
+  gem 'rubocop-performance', '~> 1.18'
 end
 
 # Test Framework and Utilities
@@ -49,4 +53,5 @@ group :test do
 end
 
 # Uncomment if needed:
-gem 'image_processing', '~> 1.2' # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+gem 'image_processing', '~> 1.2'
