@@ -43,7 +43,7 @@ class IssueGenerator
   end
 
   def create_tags(issue)
-    tag_names = issue.labels.pluck(:name)
+    tag_names = issue.tags.pluck(:name)
     tag_names.each do |tag_name|
       tag = Tag.find_or_create_by(name: tag_name)
       IssueTag.create(issue:, tag:)
