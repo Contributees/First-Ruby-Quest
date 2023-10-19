@@ -12,6 +12,17 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+       colors: {
+        purple: '#6750A4',
+        amethyst: '#958DA5',
+        pink: '#B58392',
+        darkpink: '#633B48',
+        neutral: '#939094',
+        error: '#B3261E',
+        snow: '#FFFBFE',
+        silver: '#79747E',
+        dark: '#1C1B1F',
+      },
     },
   },
   plugins: [
