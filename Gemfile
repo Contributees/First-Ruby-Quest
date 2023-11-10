@@ -31,6 +31,9 @@ gem 'simple_form' # Form helper that generates forms with Bootstrap classes
 gem 'devise' # Authentication
 gem 'octokit', '~> 5.0' # Wrapper for the GitHub API
 gem 'pg_search'
+gem 'sidekiq'
+gem 'sidekiq-failures'
+
 # Development and Testing Tools
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

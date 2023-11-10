@@ -29,16 +29,4 @@ class Issue < ApplicationRecord
   enum status: %i[open closed]
 
   pg_search_scope :search_by_keyword, against: %i[title description repo_name]
-
-  def self.find_issues
-    issues = GithubApi.new.search_issues.items
-    active_issues = []
-    issues.each do |issue|
-      i = IssueGenerator.new(issue).create
-      active_issues << i
-    end
-
-    issues_no_longer_available = Issue.where(category: 'open-source') - active_issues
-    issues_no_longer_available.each(&:closed!)
-  end
 end
