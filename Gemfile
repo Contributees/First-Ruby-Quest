@@ -24,8 +24,8 @@ gem 'bootstrap', '~> 5.2'
 gem 'faker'
 gem 'font-awesome-sass', '~> 6.1'
 gem 'kaminari' # For pagination
-gem 'sassc-rails' # Use Sass to process CSS
 gem 'simple_form' # Form helper that generates forms with Bootstrap classes
+gem 'tailwindcss-rails'
 
 # Miscellaneous
 gem 'devise' # Authentication
