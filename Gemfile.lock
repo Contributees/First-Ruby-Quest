@@ -328,6 +328,7 @@ GEM
 PLATFORMS
   arm64-darwin-22
   x86_64-darwin-21
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -353,7 +354,6 @@ DEPENDENCIES
   rubocop-performance (~> 1.18)
   rubocop-rails
   rubocop-rake
-  sassc-rails
   selenium-webdriver
   simple_form
   sprockets-rails
