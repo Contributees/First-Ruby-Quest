@@ -3,6 +3,6 @@ class CreateIssuesJob
 
   def perform
     issues = GithubApi.new.search_issues.items
-    issues.each { |issue| IssueGenerator.new(issue).create }
+    issues.each { |issue| IssueProcessor.new(issue).create }
   end
 end

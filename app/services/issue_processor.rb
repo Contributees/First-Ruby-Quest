@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class IssueGenerator
+class IssueProcessor
   def initialize(issue)
     @issue = issue
   end
