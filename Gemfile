@@ -54,6 +54,8 @@ group :test do
   gem 'capybara' # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 # Uncomment if needed:
