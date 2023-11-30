@@ -12,7 +12,7 @@ RSpec.describe IssuesController, type: :controller do
     context "without any additional params" do
       it "loads all of the issues into @issues" do
         get :index
-        expect(assigns(:issues)).to match_array([issue_1, issue_2])
+        expect(assigns(:issues)).to match_array([issue1, issue2])
       end
     end
   end
