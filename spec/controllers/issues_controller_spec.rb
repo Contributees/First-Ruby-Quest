@@ -1,8 +1,8 @@
 require "rails_helper"
-RSpec.describe IssuesController, :type => :controller do
+RSpec.describe IssuesController, type: :controller do
   describe "#index" do
-    let!(:issue_1) {create(:issue)}
-    let!(:issue_2) {create(:issue)}
+    let!(:issue1) { create(:issue) }
+    let!(:issue2) { create(:issue) }
 
     it "renders the index template" do
       get :index
@@ -17,12 +17,12 @@ RSpec.describe IssuesController, :type => :controller do
     end
   end
 
-  describe "#show" do
-  end
+  # describe "#show" do
+  # end
 
-  describe "#new" do
-  end
+  # describe "#new" do
+  # end
 
-  describe "#create" do
-  end
+  # describe "#create" do
+  # end
 end
