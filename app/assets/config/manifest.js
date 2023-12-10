@@ -3,5 +3,6 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link popper.js
+//= link actiontext.css
 //= link bootstrap.min.js
 //= link_tree ../builds

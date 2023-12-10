@@ -6,7 +6,6 @@
 // Libraries
 @import "bootstrap";
 @import "font-awesome";
-@import "actiontext.scss";
 
 // Components
 @import "components/alert";
@@ -72,6 +71,10 @@ h2, h3, h4 {
 
 .text-silver {
   color: $silver;
+}
+
+trix-toolbar .trix-button--icon {
+  background-color: white;
 }
 
 // This is meant to change the backgroud of the tooltips but i am not sure if
