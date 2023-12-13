@@ -1,6 +1,6 @@
 namespace :issue do
   desc "Fetch issues from Github and create them in the database"
-  task create :environment do
+  task create: :environment do
     CreateIssuesJob.perform_async
   end
 
