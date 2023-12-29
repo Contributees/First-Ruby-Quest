@@ -10,9 +10,5 @@ FactoryBot.define do
     gh_id { 1234 }
     description { "Veniam rerum nesciunt. Quibusdam quasi non. Est id minima." }
     assigned { false }
-
-    after(:create) do |issue|
-      create_list(:tag, 2, issues: [issue])
-    end
   end
 end
