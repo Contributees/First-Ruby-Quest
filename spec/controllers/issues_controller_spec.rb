@@ -54,20 +54,26 @@ RSpec.describe IssuesController, type: :controller do
     end
 
     context "when issues are filtered by tags" do
-      let!(:tag1) { create(:tag) }
-      let!(:tag2) { create(:tag) }
-      let!(:issue1) { create(:issue, tags: [tag1]) }
-      let!(:issue2) { create(:issue, tags: [tag2]) }
+      let(:tag1) { create(:tag) }
+      let(:tag2) { create(:tag) }
+      let(:tag3) { create(:tag) }
+      let(:issue1) { create(:issue) }
+      let!(:issue2) { create(:issue) }
+      let!(:issue3) { create(:issue) }
+      before do
+        create(:issue_tag, issue: issue1, tag: tag1)
+        create(:issue_tag, issue: issue2, tag: tag2)
+        create(:issue_tag, issue: issue3, tag: tag3)
+      end
 
       it "loads all the issues with tags" do
-        get :index, params: { tag_id: [tag1.id, tag2.id] }
-        expect(assigns(:issues)).to match_array([issue1, issue2])
+        get :index, params: { tags: "[{\"value\":\"#{tag1.id}\"},{\"value\":\"#{tag3.id}\"}]" }
+        expect(assigns(:issues)).to match_array([issue1, issue3])
       end
     end
 
-    context "when issue are searched by keyword" do
-
-    end
+    # context "when issue are searched by keyword" do
+    # end
   end
 
   # describe "#show" do
