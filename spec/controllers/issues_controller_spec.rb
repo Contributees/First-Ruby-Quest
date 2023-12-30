@@ -72,8 +72,13 @@ RSpec.describe IssuesController, type: :controller do
       end
     end
 
-    # context "when issue are searched by keyword" do
-    # end
+    context "when issue are searched by keyword" do
+      let!(:my_issue) { create(:issue, title: "my_title") }
+      it "only returns issue with keyword" do
+        get :index, params: { query: "my_title" }
+        expect(assigns(:issues)).to match_array([my_issue])
+      end
+    end
   end
 
   # describe "#show" do
@@ -83,5 +88,5 @@ RSpec.describe IssuesController, type: :controller do
   # end
 
   # describe "#create" do
-  # end
+  # end›
 end
