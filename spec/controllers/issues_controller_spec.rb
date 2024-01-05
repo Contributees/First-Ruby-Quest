@@ -9,6 +9,7 @@ RSpec.describe IssuesController, type: :controller do
     context "without any additional params" do
       let!(:issue1) { create(:issue) }
       let!(:issue2) { create(:issue) }
+
       it "loads all of the issues into @issues" do
         get :index
         expect(assigns(:issues)).to match_array([issue1, issue2])
@@ -74,6 +75,7 @@ RSpec.describe IssuesController, type: :controller do
 
     context "when issue are searched by keyword" do
       let!(:my_issue) { create(:issue, title: "my_title") }
+
       it "only returns issue with keyword" do
         get :index, params: { query: "my_title" }
         expect(assigns(:issues)).to match_array([my_issue])
