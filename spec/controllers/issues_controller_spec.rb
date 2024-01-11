@@ -74,11 +74,35 @@ RSpec.describe IssuesController, type: :controller do
     end
 
     context "when issue are searched by keyword" do
-      let!(:my_issue) { create(:issue, title: "my_title") }
+      let!(:issue1) { create(:issue, title: "searchable_title") }
+      let!(:issue2) { create(:issue) }
+      let!(:issue3) { create(:issue, repo_name: "searchable_repo") }
 
-      it "only returns issue with keyword" do
-        get :index, params: { query: "my_title" }
-        expect(assigns(:issues)).to match_array([my_issue])
+      before do
+        ActionText::RichText.create!(record_type: 'Issue', record_id: issue2.id,
+        name: 'description', body: "This is a description")
+      end
+
+      context "when searching by title" do
+        it "only returns isssues matching that title" do
+          get :index, params: { query: "searchable_title" }
+          expect(assigns(:issues)).to match_array([issue1])
+        end
+      end
+
+      # how to create action text with factory bot
+      context "when searching by description" do
+        it "only returns isssues matching that description" do
+          get :index, params: { query: "This is a description" }
+          expect(assigns(:issues)).to match_array([issue2])
+        end
+      end
+
+      context "when searching by repo_name" do
+        it "only returns isssues matching that repo name" do
+          get :index, params: { query: "searchable_repo" }
+          expect(assigns(:issues)).to match_array([issue3])
+        end
       end
     end
   end
