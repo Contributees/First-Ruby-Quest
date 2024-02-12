@@ -47,4 +47,16 @@ trix-editor {
     margin-left: 0.3em;
     padding-left: 0.6em;
   }
+
+  pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: 1em;
+    padding: 0.5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto;
+  }
 }
