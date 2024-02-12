@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :guide
+
   def dashboard
     @bookmarked_issues = Bookmark.includes(issue: :tags).where(user_id: current_user.id)
 
