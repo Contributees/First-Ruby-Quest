@@ -9,7 +9,7 @@ We welcome contributions from everyone, whether it's
 
 ## Installation
 
-1. Clone the repository on GitHub: git clone https://github.com/your-username/first-ruby-quest.git
+1. Clone the repository on GitHub after forking this repository: `git clone git@github.com:YOUR-GITHUB-USERNAME/First-Ruby-Quest.git`
 2. Navigate into the project directory: `cd first-ruby-quest`
 3. Install dependencies by running: `bundle install`
 4. Set up the database by running: `rails db:setup`
@@ -27,7 +27,7 @@ If you have ideas for new features or improvements, we'd love to hear them! Plea
 
 ### Submit a Pull Request
 
-1. Fork this repository on GitHub.
+1. Fork this repository on GitHub and clone that repository on your local machine. If you haven't forked or cloned repositories before, please refer to [GitHub's help page](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo?tool=desktop)
 2. Create a branch for your changes, commit your work, and push your changes to your fork.
 3. Create a new Pull Request from your fork's branch to the main repository's main branch.
 
