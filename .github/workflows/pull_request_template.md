@@ -16,7 +16,7 @@ Closes
 
 <!-- Describe here what you are doing -->
 
-### Chalenges
+### Challenges
 
 ### Solutions
 
