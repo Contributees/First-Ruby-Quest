@@ -1,10 +1,12 @@
 # PR
 ### What type of PR is this? (check all applicable)
-[] Refactor
-[] New Feature
-[] Bug Fix
-[] Optimization
-[] Documentation Update
+- [ ] Refactor
+- [ ] New Feature
+- [ ] Bug Fix
+- [ ] Optimization
+- [ ] Documentation
+- [ ] Configuration
+- [ ] Tests
 
 ### Linked Issues
 

@@ -39,4 +39,6 @@ To run RuboCop:
     $ bundle exec rubocop
 
 ## Testing
-_In progress_
+We use RSpec for testing. Please ensure that your changes are covered by tests. To run the test suite:
+
+    $ bundle exec rspec
