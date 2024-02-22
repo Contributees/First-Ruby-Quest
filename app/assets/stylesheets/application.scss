@@ -35,10 +35,23 @@ p {
   font-family: $headers-font;
   font-weight: 300;
   font-size: 1rem;
+  text-align: justify;
 }
-h2, h3, h4 {
+
+h2,
+h3,
+h4 {
   font-family: $sub-headers-font;
   font-weight: 400;
+  margin-top: 2rem;
+}
+
+li {
+  margin-top: 1rem;
+}
+
+pre {
+  color: $dark-pink;
 }
 
 .text-italic {
