@@ -1,10 +1,10 @@
-CODES = ("AAAA".."ZZZZ").to_a.shuffle
+UNIQUE_STRINGS = ("AAAA".."ZZZZ").to_a.shuffle
 FactoryBot.define do
   factory :issue, class: Issue do
     association :user, factory: :user
     title { "rendering ERB Templates with correct spacing" }
     category { "open-source" }
-    url { CODES.pop }
+    url { UNIQUE_STRINGS.pop }
     repo_name { "test-repo" }
     gh_url { "/" }
     gh_id { 1234 }
