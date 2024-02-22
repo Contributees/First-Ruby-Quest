@@ -1,6 +1,7 @@
 require "rails_helper"
 RSpec.describe IssuesController, type: :controller do
   describe "#index" do
+
     it "renders the index template" do
       get :index
       expect(response).to render_template("index")
@@ -21,6 +22,7 @@ RSpec.describe IssuesController, type: :controller do
       let!(:assigned_issue) { create(:issue, assigned: true) }
 
       context "when 'assigned' has been selected" do
+
         it "only returns assigned issues" do
           get :index, params: { issue: { assigned: true } }
           expect(assigns(:issues)).to match_array([assigned_issue])
@@ -28,6 +30,7 @@ RSpec.describe IssuesController, type: :controller do
       end
 
       context "when 'unassigned' has been selected" do
+
         it "only returns unassigned issues" do
           get :index, params: { issue: { assigned: false } }
           expect(assigns(:issues)).to match_array([unassigned_issue])
@@ -84,6 +87,7 @@ RSpec.describe IssuesController, type: :controller do
       end
 
       context "when searching by title" do
+
         it "only returns isssues matching that title" do
           get :index, params: { query: "searchable_title" }
           expect(assigns(:issues)).to match_array([issue1])
@@ -92,6 +96,7 @@ RSpec.describe IssuesController, type: :controller do
 
       # how to create action text with factory bot
       context "when searching by description" do
+
         it "only returns isssues matching that description" do
           get :index, params: { query: "This is a description" }
           expect(assigns(:issues)).to match_array([issue2])
@@ -99,6 +104,7 @@ RSpec.describe IssuesController, type: :controller do
       end
 
       context "when searching by repo_name" do
+
         it "only returns isssues matching that repo name" do
           get :index, params: { query: "searchable_repo" }
           expect(assigns(:issues)).to match_array([issue3])
