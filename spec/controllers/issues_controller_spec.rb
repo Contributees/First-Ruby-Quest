@@ -61,6 +61,7 @@ RSpec.describe IssuesController, type: :controller do
       let(:issue1) { create(:issue) }
       let!(:issue2) { create(:issue) }
       let!(:issue3) { create(:issue) }
+
       before do
         create(:issue_tag, issue: issue1, tag: tag1)
         create(:issue_tag, issue: issue2, tag: tag2)
