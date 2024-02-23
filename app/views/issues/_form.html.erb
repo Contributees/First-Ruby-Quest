@@ -6,18 +6,18 @@
         </div>
       </div>
 
-<!------------------------------->
 
   <div class="mb-4">
-    <h4 class="">Type of quest</h4>
-    <%= radio_button :issue, :category, "", id: "category-indifferent", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "" %>
-    <label class="btn btn-outline-info me-1" for="category-indifferent">All</label>
+    <h2 class="text-1xl font-bold tracking-tight text-white sm:text-2xl">Type of keywords</h2>
 
-    <%= radio_button :issue, :category, "open-source", id: "open-source", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "open-source" %>
-    <label class="btn btn-outline-secondary me-1" for="open-source"><i class="fa-brands fa-github me-2"></i></i><span>Open Source</span></label>
+    <%= radio_button :issue, :category, "all", id: "category-indifferent", class: "hidden", checked: params[:issue] && params[:issue][:category] == "" %>
+    <label class="inline-flex items-center cursor-pointer hover:bg-secondary hover:text-black p-3 border border-transparent text-sm leading-4 font-medium rounded-md text-snow bg-none mr-1" for="category-indifferent"><i class="fa-regular fa-circle-dot m-1"></i><span>All</span></label>
 
-    <%= radio_button :issue, :category, "call_to_action", id: "call-to-action", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "call-to-action"  %>
-    <label class="btn btn-outline-warning me-1" for="call-to-action"><i class="fa-solid fa-hand-holding-hand me-2"></i></i><span>Personal</span></label>
+    <%= radio_button :issue, :category, "open-source", id: "open-source", class: "hidden", checked: params[:issue] && params[:issue][:category] == "open-source" %>
+    <label class="inline-flex items-center cursor-pointer hover:bg-secondary hover:text-black p-3 border border-transparent text-sm leading-4 font-medium rounded-md text-snow bg-none mr-1"><i class="fa-brands fa-github m-1"></i><span>Open Source</span></label>
+
+    <%= radio_button :issue, :category, "call_to_action", id: "call-to-action", class: "hidden", checked: params[:issue] && params[:issue][:category] == "call-to-action"  %>
+    <label class="inline-flex items-center cursor-pointer hover:bg-secondary hover:text-black p-3 border border-transparent text-sm leading-4 font-medium rounded-md text-snow bg-none mr-1" for="call-to-action"><i class="fa-solid fa-hand-holding-hand m-1"></i><span>Personal</span></label>
   </div>
 
   <div class="mb-4">
