@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   root to: 'issues#index'
   get 'dashboard', to: 'pages#dashboard'
+  get 'guide', to: 'pages#guide'
 
   resources :issues, only: %i[new create show] do
     resources :bookmarks, only: :create do

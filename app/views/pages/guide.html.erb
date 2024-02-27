@@ -1,0 +1,71 @@
+<h2 class="text-center mb-4">Getting started with contributing to open source</h2>
+<div class="m-5">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div>
+      <h3>Step 1 - Find an issue</h3>
+      <p>
+        When open source project maintainers need help, they usually open an issue about it on GitHub. This can be for example for fixing a bug, cleaning up the test suite, or adding a new feature.
+        An issue can also be opened by a user who noticed something in that app could be fixed or improved.
+      </p>
+      <p>
+        Once the issue is created, anyone who wants to help can comment on the issue and ask to work on it. It can be
+        difficult for first-time contributors to find an issue they can work on. This is where <strong>First Ruby Quest</strong> can help you!
+        We collect issues from GitHub that have been marked as beginner-friendly, so that you can simply browse through them, save the ones you like,
+        and have a look at the description on GitHub. When you know you want to work on it, head to that issue's page on GitHub and leave a comment
+        to ask the maintainer to assign it to you.
+      </p>
+
+      <p>
+        If you would like to learn how to find issues easily directly in GitHub, we recommend having a look at the GitHub documentation
+        about <%= link_to "searching issues", "https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests" %>.
+        You can for example search for "language:ruby is:issue no:assignee state:open label:"Front End",front-end" to look for non-assigned, open issues
+        in the Ruby language that have the label "Front-End" or "Front End".
+      </p>
+    </div>
+    <div class="flex flex-col justify-center">
+      <%= image_tag "search-code-amico", width: "60%", class: "mx-auto items-center" %>
+    </div>
+
+    <div>
+      <%= image_tag "coding-amico", width: "60%", class: "mx-auto items-center" %>
+    </div>
+    <div>
+      <h3>Step 2: Make the change described in the issue</h3>
+      <p>Once the maintainer has assigned you to an issue, you can start working on it! Just follow these steps:</p>
+      <ul>
+        <li>
+          Fork the repository to create a copy of it in your own GitHub account, then clone your copy on your machine.
+          If you are not familiar with forking/cloning a repository, have a look at <%= link_to "the GitHub help page on this subject", "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository", target: "_blank" %>.
+        </li>
+        <li>
+          With the repository cloned on your machine, you should now be able to open it in the code editor of your choice. There may be some set up required for the project to work; make sure you read the instructions in the repository's ReadMe or Contributing Guide.
+        </li>
+        <li>
+          Once everything is running, open a branch and get coding! If you get stuck, you can click on "Get help on an issue" on First Ruby Quest's home page to ask the community to give you a hand.
+        </li>
+      </ul>
+      <p>
+        Please note that certain projects or maintainers have certain preferences concerning the style in which the commit should be written. Just refer to the contributing guide and you'll be good to go.
+      </p>
+    </div>
+
+    <div>
+      <h3>Step 3: Open a PR</h3>
+        <p>
+          Once you have made the changes requested in the issue, you can push your branch to your repository and open a Pull Request. That PR will then appear on the source repository for the maintainers to review.
+          It is good practice to write a clear description of what you did and any particular choice you made in your Pull Request description. Certain projects follow a certain template and will ask you to confirm you added tests, for example.
+          Again, just refer to the project's description to know what is expected from contributors.
+        </p>
+        <p>
+          It is possible that your PR will not be approved right away and that the maintainer will ask you to make some changes. Do not get discouraged by this! This is a normal part of working with other people and getting feedback, and an opportunity to learn.
+          Do not hesitate to ask for clarifications if something is unclear.
+        </p>
+        <p>
+          Once your PR is approved, the maintainer will merge it. That's it, you've now made your first contribution!
+        </p>
+    </div>
+    <div>
+      <%= image_tag "collaboration-amico", width: "60%", class: "mx-auto items-center" %>
+    </div>
+  </div>
+</div>
