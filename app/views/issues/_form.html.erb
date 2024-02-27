@@ -21,7 +21,7 @@
   </div>
 
   <div class="mb-4">
-    <h4 class="">Assignment Status</h4>
+    <h2 class="text-1xl font-bold tracking-tight text-white sm:text-2xl">Assignment Status</h2>
     <%= radio_button :issue, :assigned, "", id: "assigned-indifferent", class: "btn-check", checked: params[:issue] && params[:issue][:assigned] == "" %>
     <label class="btn btn-outline-info me-1" for="assigned-indifferent">All</label>
 
@@ -31,12 +31,43 @@
     <%= radio_button :issue, :assigned, false, id: "unassigned", class: "btn-check", checked: params[:issue] && params[:issue][:assigned] == "false"  %>
     <label class="btn btn-outline-info me-1" for="unassigned"><i class="fa-solid fa-user-large-slash me-2"></i><span>Unassigned</span></label>
   </div>
-  <div class="mb-4">
-    <h4 class="">Github Tags</h4>
-    <%= form.text_field :tags, data: {tags_target: "input", tags_action: "keyup->tags#updateTags"} %>
+  <%# <div class="mb-4">
+    <h2 class="text-1xl font-bold tracking-tight text-white sm:text-2xl">Github Tags</h2>
+    <%= form.text_field :tags, 
+    data: {tags_target: "input", tags_action: "keyup->tags#updateTags"}, 
+    class: "w-full bg-pink border-pink focus:border-pink" %>
+  <%# </div>  %>
+  <div>
+  <div class="relative mb-4">
+        <button onclick="toggleDropdown()" class="text-black bg-white hover:bg-pink rounded-lg text-1xl font-bold tracking-tight sm:text-2xl px-4 py-2.5 text-center inline-flex items-center" type="button">
+            <h2> Github Tags </h2>
+        </button>
+        <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute">
+            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ruby</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rails</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Good first issue</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Help wanted</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Bug</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Beginner</a>
+                </li>
+            </ul>
+        </div>
+    </div>
   </div>
   <div class="form-group">
-  <%= form.submit "Search", class: "rounded-sm bg-snow text-purple hover:bg-white hover:text-amethyst focus:bg-white focus:text-amethyst px-6 py-2 mr-2 w-40" %>    
+  <%= form.submit "Search", class: "rounded-sm bg-white text-purple hover:bg-white hover:text-amethyst focus:bg-white focus:text-amethyst px-6 py-2 mr-2 w-40" %>    
   <%= button_tag "Clear", type: "button", class: "rounded-sm bg-secondary hover:text-purple text-snow px-4 py-2 mt-2", data: {action: "click->clear#refresh"} %>
   </div>
 <% end %>
