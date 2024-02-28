@@ -76,13 +76,8 @@ RSpec.describe IssuesController, type: :controller do
 
     context "when issue are searched by keyword" do
       let!(:issue1) { create(:issue, title: "searchable_title") }
-      let!(:issue2) { create(:issue) }
+      let!(:issue2) { create(:issue, description: "This is a description") }
       let!(:issue3) { create(:issue, repo_name: "searchable_repo") }
-
-      before do
-        ActionText::RichText.create!(record_type: 'Issue', record_id: issue2.id,
-                                     name: 'description', body: "This is a description")
-      end
 
       context "when searching by title" do
         it "only returns isssues matching that title" do
@@ -91,7 +86,6 @@ RSpec.describe IssuesController, type: :controller do
         end
       end
 
-      # how to create action text with factory bot
       context "when searching by description" do
         it "only returns isssues matching that description" do
           get :index, params: { query: "This is a description" }
