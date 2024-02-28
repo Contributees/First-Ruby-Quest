@@ -97,6 +97,10 @@ RSpec.describe IssuesController, type: :controller do
         it "only returns isssues matching that repo name" do
           get :index, params: { query: "searchable_repo" }
           expect(assigns(:issues)).to match_array([issue3])
+
+          p issue1
+          p issue2
+          p issue3
         end
       end
     end
