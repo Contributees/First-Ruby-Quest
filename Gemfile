@@ -29,6 +29,7 @@ gem 'tailwindcss-rails'
 
 # Miscellaneous
 gem 'devise' # Authentication
+gem 'omniauth-github'
 gem 'octokit', '~> 5.0' # Wrapper for the GitHub API
 gem 'pg_search'
 gem 'sidekiq'
