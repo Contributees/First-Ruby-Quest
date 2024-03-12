@@ -20,7 +20,6 @@ gem 'turbo-rails'
 
 # Front End
 gem 'autoprefixer-rails'
-gem 'bootstrap', '~> 5.2'
 gem 'faker'
 gem 'font-awesome-sass', '~> 6.1'
 gem 'kaminari' # For pagination
