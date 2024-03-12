@@ -1,23 +1,24 @@
 
 <% resource_name ||= :user %>
-
-<div class="bg-silver py-36">
+<div style="background-image: url(<%= asset_path 'engineer_banner.jpg' %>); padding-top: 8rem; padding-bottom: 8rem" class="bg-no-repeat bg-cover w-screen">
+<div class="py-36">
   <div class="container mx-auto flex justify-between">
     <div>
-      <h1 class="text-white text-shadow text-6xl font-bold mb-0 ">First Ruby Quest</h1>
-      <h3 class="text-white text-shadow text-2xl opacity-70 mt-2">Become an open source hero by <br>tackling beginner-friendly issues</h3>
+      <h1 class="text-purple text-shadow text-6xl font-bold mb-0 ">First Ruby Quest</h1>
+      <h3 class="text-secondary text-shadow text-2xl opacity-70 mt-2">Become an open source hero by <br>tackling beginner-friendly Github issues</h3>
     </div>
-    <div class="flex flex-col items-center justify-center">
-      <%= image_tag "github-mark", width: 100, class: "w-24" %>
-      <div class="mt-4">
-        <%= link_to "Get help on an issue", new_issue_path, class: "btn bg-secondary text-white px-4 py-2 mr-2" %>
+    <div class="flex items-center justify-center space-x-4">
+      <div class="flex flex-row items-center justify-center space-x-4">
+        <%= link_to "Get help on an issue", new_issue_path, class: "items-center justify-center rounded-md border border-transparent bg-secondary px-8 py-3 text-base font-medium text-white hover:bg-neutral md:px-10 md:py-4 md:text-lg" %>
         <% unless user_signed_in? %>
-          <%= link_to "Sign up", new_registration_path(resource_name), class: "no-underline inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm" %>
+          <%= link_to "Sign up", new_registration_path(resource_name), class: "items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 text-base font-medium text-white hover:bg-secondary md:px-10 md:py-4 md:text-lg" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 
 <div class="container mt-5">
   <p class="guide-container mb-0 text-lg bg-white text-black"><%= image_tag "ruby_search", width: 30, class: "inline" %> New to open source? Check out our <%= link_to "guide", guide_path, class: "inline" %> for first-time contributors!</p>
@@ -40,3 +41,4 @@
     <%= paginate @issues %>
   </div>
 </div>
+
