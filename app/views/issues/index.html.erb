@@ -19,12 +19,16 @@
     </div>
     </div>
 
-
-    <div class="container mt-5 p-4">
-      <p class="guide-container mb-0 text-lg bg-white text-black"><%= image_tag "ruby_search", width: 30, class: "inline" %> New to open source? Check out our <%= link_to "guide", guide_path, class: "inline" %> for first-time contributors!</p>
+    <div class="container mx-auto mt-5 p-4">
+      <div class="alert bg-white border-t-1 rounded-md text-black shadow-md" role="alert">
+        <div class="flex">
+          <div class="p-2"><%= image_tag "ruby_search", width: 30, class: "inline" %></div>
+          <div class="px-2 py-3">
+            <p class="text-lg font-sm">New to open source? Check out our <%= link_to "guide", guide_path, class: "underline text-purple" %> for first-time contributors!</p>
+          </div>
+        </div>
+      </div>  
     </div>
-
-
 
     <div class="container pt-5 issues-container text-white">
       <div class="search" data-controller="tags clear"   data-tags-tags-value="<%= @tags %>">
