@@ -31,13 +31,13 @@
     </div>
 
     <div class="p-2 container mx-auto border border-white flex gap-4">
-    <div class="border border-white grid-cols-2">
+    <div class="border border-white grid-cols-2 p-2 m-2">
       <p class="text-white"> Container 1 </p>
       <div class="search" data-controller="tags clear"   data-tags-tags-value="<%= @tags %>">
         <%= render "form" %>
       </div>
     </div>
-    <div class="border border-white grid-cols-2 grid-span-2">
+    <div class="border border-white grid-cols-2 grid-span-2 p-2 m-2">
       <p class="text-white"> Container 2 </p>
       <div class="text-white">
         <% if @issues.empty? %>
