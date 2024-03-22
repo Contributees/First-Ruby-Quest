@@ -1,11 +1,11 @@
 <%= form_with url: "/", method: :get, data: {clear_target: "form"} do |form| %>
   <div class="form-group mb-4">
-    <h4 class="text-white">Search by keywords</h4>
-    <%= form.text_field :query, placeholder: "gem, concurrency, stimulus, etc.", class: "form-control", value: params[:query] %>
+    <h4 class="text-2xl font-bold tracking-tight text-white sm:text-1xl">Search by keywords</h4>
+    <%= form.text_field :query, placeholder: "gem, concurrency, stimulus, etc.", class: "min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-purple sm:text-sm sm:leading-6", value: params[:query] %>
   </div>
 
   <div class="form-group mb-4 text-white">
-    <h4 class="">Type of quest</h4>
+    <h4 class="text-2xl font-bold tracking-tight text-white sm:text-1xl">Type of quest</h4>
     <%= radio_button :issue, :category, "", id: "category-indifferent", class: "btn-check", checked: params[:issue] && params[:issue][:category] == "" %>
     <label class="btn btn-outline-info me-1" for="category-indifferent">All</label>
 
@@ -17,7 +17,7 @@
   </div>
 
   <div class="form-group mb-4 text-white">
-    <h4 class="">Assignment Status</h4>
+    <h4 class="text-2xl font-bold tracking-tight text-white sm:text-1xl">Assignment Status</h4>
     <%= radio_button :issue, :assigned, "", id: "assigned-indifferent", class: "btn-check", checked: params[:issue] && params[:issue][:assigned] == "" %>
     <label class="btn btn-outline-info me-1" for="assigned-indifferent">All</label>
 
@@ -28,11 +28,11 @@
     <label class="btn btn-outline-info me-1" for="unassigned"><i class="fa-solid fa-user-large-slash me-2"></i><span>Unassigned</span></label>
   </div>
   <div class="form-group mb-4 text-white">
-    <h4 class="">Github Tags</h4>
+    <h4 class="text-2xl font-bold tracking-tight text-white sm:text-1xl">Github Tags</h4>
     <%= form.text_field :tags, data: {tags_target: "input", tags_action: "keyup->tags#updateTags"} %>
   </div>
   <div class="form-group text-white">
-    <%= form.submit "Search", class: "btn btn-ouline-primary btn-search px-5 me-2 d-inline-flex" %>
-    <%= button_tag "Clear", type: "button", class: "btn btn-secondary", data: {action: "click->clear#refresh"} %>
+    <%= form.submit "Search", class: "rounded-md bg-white text-purple hover:bg-white hover:text-amethyst focus:bg-white focus:text-amethyst px-6 py-2 mr-2 w-40" %>
+    <%= button_tag "Clear", type: "button", class: "rounded-md bg-secondary hover:text-purple text-snow px-4 py-2 mt-2", data: {action: "click->clear#refresh"} %>
   </div>
 <% end %>
