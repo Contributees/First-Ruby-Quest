@@ -10,13 +10,13 @@
         </div>
       </div>
       <div class="flex items-center">
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0 flex">
           <% if user_signed_in? %>
             <!-- Display "Dashboard" link when signed in -->
-            <%= render "shared/button", text: "Dashboard", path: dashboard_path, color: "bg-primary" %>
-            <%= render "shared/button", text: "Log out", path: destroy_user_session_path, color: "bg-error", data: { turbo_method: :delete } %>
+            <%= link_to "Dashboard", dashboard_path, class: "button bg-primary mr-3" %>
+            <%= button_to "Log out", destroy_user_session_path, class: "button bg-error", method: :delete %>
           <% else %>
-            <%= button_to user_github_omniauth_authorize_path, class: "no-underline inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm", data: { turbo: false } do %>
+            <%= button_to user_github_omniauth_authorize_path, class: "button bg-primary", data: { turbo: false }  do %>
               <div class="flex items-center">
                 <div>Log in with GitHub</div>
                 <svg class="h-6 w-6 ml-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
