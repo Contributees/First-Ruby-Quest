@@ -1,7 +1,7 @@
 <div class="container mx-auto issue-page">
   <h1>Call for cooperation</h1>
 
-  <div class="card-issue card-issue--call-to-action mt-4">
+  <div class="card-issue card-issue--call-to-action mt-4 mb-12">
     <h2 class="my-3"><%= @issue.title %></h2>
     <p><%= @issue.description %></p>
 
@@ -17,11 +17,11 @@
       </div>
     </div>
   </div>
-  <div>
-    <h2>Add a comment</h2>
-    <%= simple_form_for([@issue, @comment]) do |f| %>
-      <%= f.input :content %>
-      <%= f.submit class: "no-underline inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm bg-primary" %>
+  <div">
+    <h3 class="mb-2">Add a comment</h3>
+    <%= form_with(model: [@issue, @comment]) do |f| %>
+      <%= f.rich_text_area :content,  class: "min-h-32"  %>
+      <%= f.submit class: "no-underline inline-flex items-center rounded-md px-3 py-2 mt-3 text-sm font-semibold text-white shadow-sm bg-primary" %>
     <% end %>
   </div>
 
