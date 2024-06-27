@@ -83,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_01_174159) do
   create_table "issues", force: :cascade do |t|
     t.boolean "assigned", default: false
     t.integer "category"
-    t.boolean "completed", default: false
     t.string "description"
     t.bigint "gh_id"
     t.datetime "gh_issue_created_at"
