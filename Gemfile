@@ -27,6 +27,10 @@ gem 'kaminari' # For pagination
 gem 'simple_form' # Form helper that generates forms with Bootstrap classes
 gem 'tailwindcss-rails'
 
+# Omniauth
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
 # Miscellaneous
 gem 'devise' # Authentication
 gem 'octokit', '~> 5.0' # Wrapper for the GitHub API
