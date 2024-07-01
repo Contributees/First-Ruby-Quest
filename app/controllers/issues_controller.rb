@@ -18,7 +18,7 @@ class IssuesController < ApplicationController
     @issue = Issue.find(params[:id])
     @issue_author = @issue.user.username
     @comment = Comment.new
-    @comments = Comment.where(issue_id: @issue.id)
+    @comments = @issue.comments.includes(:user)
   end
 
   def new
