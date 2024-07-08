@@ -25,6 +25,7 @@
     <% end %>
   </div>
 
+  <%= turbo_stream_from @issue, "comments" %>
   <div id="comments">
     <%= turbo_frame_tag "comments" do %>
       <%= render @comments %>
