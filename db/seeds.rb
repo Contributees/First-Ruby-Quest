@@ -14,9 +14,7 @@ Comment.destroy_all
   User.create!(
     username:,
     gh_url: "https://github.com/#{username}",
-    email: Faker::Internet.email,
-    password: '123456',
-    password_confirmation: '123456'
+    gh_uid: Faker::Number.number(digits: 6)
   )
 end
 

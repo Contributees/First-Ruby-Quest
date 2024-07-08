@@ -13,7 +13,7 @@
     <%= f.input :title, label: "Shortly summarize what you need help with", wrapper_html: {class: "mb-5"} %>
     <div data-controller="markdown my-4">
         <%= f.label :description, "Give more details about what you need", class: "mb-3" %>
-      <%= f.rich_text_area :description, required: true, class: "form-control customized-min-height" %>
+      <%= f.rich_text_area :description, required: true, class: "form-control min-h-60" %>
     </div>
     <%= f.input :repo_name, label: "Repository name", wrapper_html: {class: "mt-5 mb-4"}  %>
     <%= f.input :gh_url, label: "Link to the repository on Github", wrapper_html: {class: "mb-4"}  %>

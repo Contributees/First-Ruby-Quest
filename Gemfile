@@ -26,6 +26,7 @@ gem 'font-awesome-sass', '~> 6.1'
 gem 'kaminari' # For pagination
 gem 'simple_form' # Form helper that generates forms with Bootstrap classes
 gem 'tailwindcss-rails'
+gem 'sass-rails'
 
 # Omniauth
 gem 'omniauth-github'
