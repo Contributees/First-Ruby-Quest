@@ -12,8 +12,8 @@
       </div>
 
       <div>
-        <%= render "shared/button", text: "See Issue", path: @issue.url, color: "bg-primary", target_blank: true  unless @issue.url.blank?%>
-        <%= render "shared/button", text: "See Repository", path: @issue.gh_url, color: "bg-success", target_blank: true  unless @issue.gh_url.blank?%>
+        <%= link_to "See Issue", @issue.url, class: "button bg-primary", target_blank: true  unless @issue.url.blank?%>
+        <%= link_to "See Repository", @issue.gh_url, class: "button bg-success", target_blank: true  unless @issue.gh_url.blank?%>
       </div>
     </div>
   </div>
