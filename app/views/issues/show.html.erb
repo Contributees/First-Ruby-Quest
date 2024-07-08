@@ -17,23 +17,17 @@
       </div>
     </div>
   </div>
-  <div">
+  <div>
     <h3 class="mb-2">Add a comment</h3>
     <%= form_with(model: [@issue, @comment]) do |f| %>
-      <%= f.rich_text_area :content,  class: "min-h-32"  %>
+      <%= f.rich_text_area :content,  class: "min-h-32", id: "comment-create-field"  %>
       <%= f.submit class: "no-underline inline-flex items-center rounded-md px-3 py-2 mt-3 text-sm font-semibold text-white shadow-sm bg-primary" %>
     <% end %>
   </div>
 
-  <div>
-    <% @comments.each do |comment| %>
-      <div class="card-issue card-issue--call-to-action-comment mt-4">
-        <div class="flex justify-between items-center mb-2">
-        <h3>Reply from <%= comment.user.username %></h3>
-        <p>On <%= comment.created_at.strftime("%d of %B, %Y at %I:%M %p") %></p>
-        </div>
-        <%= comment.content %>
-      </div>
+  <div id="comments">
+    <%= turbo_frame_tag "comments" do %>
+      <%= render @comments %>
     <% end %>
   </div>
 </div>

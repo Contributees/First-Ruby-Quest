@@ -1,0 +1,6 @@
+<%= turbo_stream.append "comments" do %>
+  <%= render @comment %>
+<% end %>
+
+<%= turbo_stream.update "comment-create-field", "" %>
+<%= turbo_stream.update "flash", partial: "shared/flashes" %>

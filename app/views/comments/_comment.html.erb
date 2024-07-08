@@ -1,0 +1,9 @@
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="card-issue card-issue--call-to-action-comment mt-4">
+    <div class="flex justify-between items-center mb-2">
+      <h3>Reply from <%= comment.user.username %></h3>
+      <p>On <%= comment.created_at.strftime("%d of %B, %Y at %I:%M %p") %></p>
+    </div>
+    <%= comment.content.html_safe %>
+  </div>
+<% end %>
