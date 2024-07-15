@@ -5,35 +5,29 @@
     <h2 class="my-3"><%= @issue.title %></h2>
     <p><%= @issue.description %></p>
 
-    <div class="flex justify-between items-center mt-16">
+    <div class="flex justify-between items-center mt-8">
       <div class="flex justify-between items-center">
         <p class="font-bold"><i class="fa-solid fa-user mr-4"></i><%= @issue_author %></p>
-        <p class="ml-4 italic"> <%= @issue.created_at.strftime("%d of %B, %Y") %></p>
+        <p class="ml-4 italic"> <%= @issue.created_at.strftime("%d %B, %Y") %></p>
       </div>
-
       <div>
         <%= link_to "See Issue", @issue.url, class: "button bg-primary", target_blank: true  unless @issue.url.blank?%>
         <%= link_to "See Repository", @issue.gh_url, class: "button bg-success", target_blank: true  unless @issue.gh_url.blank?%>
       </div>
     </div>
   </div>
-  <div">
+  <div>
     <h3 class="mb-2">Add a comment</h3>
     <%= form_with(model: [@issue, @comment]) do |f| %>
-      <%= f.rich_text_area :content,  class: "min-h-32"  %>
+      <%= f.rich_text_area :content,  class: "min-h-32", id: "comment-create-field"  %>
       <%= f.submit class: "no-underline inline-flex items-center rounded-md px-3 py-2 mt-3 text-sm font-semibold text-white shadow-sm bg-primary" %>
     <% end %>
   </div>
 
-  <div>
-    <% @comments.each do |comment| %>
-      <div class="card-issue card-issue--call-to-action-comment mt-4">
-        <div class="flex justify-between items-center mb-2">
-        <h3>Reply from <%= comment.user.username %></h3>
-        <p>On <%= comment.created_at.strftime("%d of %B, %Y at %I:%M %p") %></p>
-        </div>
-        <%= comment.content %>
-      </div>
+  <%= turbo_stream_from @issue, "comments" %>
+  <div id="comments">
+    <%= turbo_frame_tag "comments" do %>
+      <%= render @comments %>
     <% end %>
   </div>
 </div>

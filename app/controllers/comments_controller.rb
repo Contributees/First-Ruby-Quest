@@ -8,7 +8,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(attributes)
 
     if @comment.save
-      redirect_to issue_path(@issue), notice: 'Your reply has been successfully posted!'
+      notice = 'Your reply has been successfully posted!'
+      respond_to do |format|
+        format.turbo_stream { flash.now[:notice] = notice }
+        format.html { redirect_to @issue, notice: }
+      end
     else
       render 'issues/show', status: :unprocessable_entity
     end
