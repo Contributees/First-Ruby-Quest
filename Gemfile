@@ -43,6 +43,7 @@ gem 'sidekiq-failures'
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
+  gem 'rspec-rails', ">= 3.9.0"
 end
 
 group :development do
@@ -58,6 +59,8 @@ group :test do
   gem 'capybara' # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 # Uncomment if needed:

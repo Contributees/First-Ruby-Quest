@@ -28,5 +28,7 @@ class Issue < ApplicationRecord
   enum category: %i[open-source call_to_action]
   enum status: %i[open closed]
 
-  pg_search_scope :search_by_keyword, against: %i[title description repo_name]
+  pg_search_scope :search_by_keyword,
+                  against: %i[title repo_name],
+                  associated_against: { rich_text_description: [:body] }
 end
